@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Accordion</title>
+    <style>
+	body{
+		padding:0px;
+		margin:0px;
+	}
+	h1{
+		color: rgb(87, 87, 91);
+	  	font-family: "century-old-style-std";
+		font-weight: 400;
+	}
+	h2{
+		color: rgb(87, 87, 91);
+		font-family: "century-old-style-std";
+		font-weight: 400;
+	}
+
+        .accordion {
+            cursor: pointer;            
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            transition: 0.4s;
+		width:100%;
+		background-color:transparent;
+        }
+	.accordion.active h1, .accordion.active h2{
+		color:#000;
+	}
+
+	.accordion:hover h1, .accordion:hover h2{
+		color:#000;
+	}
+        .panel {
+            padding: 0 18px;
+            display: none;
+            overflow: hidden;
+		margin-left: 20px;
+        }
+	.section{
+		background-color: transparent;
+  		padding: 20px 40px;
+		border-bottom: 1px solid #ddd;
+	}
+	.section.header{
+		background-color: #57575B;
+  		padding: 20px 60px;
+
+		display:flex;
+		align-items: center;
+		gap:10px
+
+	}
+	.section.header h1{
+		color:#fff;
+	}
+	.logo{
+		width:100px;
+	}
+	.horizontal-container{
+		display:flex;
+		align-items: center;
+		gap:10px
+	}
+	.first-item{
+		flex:0 0 15% !important;
+	}
+	.item{	
+		flex:1
+	}
+    </style>
+</head>
+	<body>
+	<div class="section header">
+		<div class="item first-item">
+			<img class="logo" src="https://waterskraus.com/wp-content/themes/waterskraus/images/wkps.png"></img>
+		</div>
+		<div class="item">
+			<h1>Conference Room Instructions</h1>
+		</div>	
+	</div>
+	<div class="section">
+	    <button class="accordion"><h1>I need to share my screen</h1></button>
+	    <div class="panel">
+		    <button class="accordion"><h2>Zoom</h2></button>
+		    <div class="panel">
+		        <p>Content for Section 1 (Zoom)</p>
+		    </div>
+		    <button class="accordion"><h2>Teams</h2></button>
+		    <div class="panel">
+		        <p>Content for Section 1 (Teams)</p>
+		    </div>
+	    </div>
+	</div>
+	<div class="section">
+	    <button class="accordion"><h1>I need to join a meeting</h1></button>
+	    <div class="panel">
+		    <button class="accordion"><h2>Zoom</h2></button>
+		    <div class="panel">
+		        <p>Content for Section 1 (Zoom)</p>
+		    </div>
+		    <button class="accordion"><h2>Teams</h2></button>
+		    <div class="panel">
+		        <p>Content for Section 1 (Teams)</p>
+		    </div>
+	    </div>
+	</div>
+	<div class="section">
+	    <button class="accordion"><h1>I need to create a meeting</h1></button>
+	    <div class="panel">
+		    <button class="accordion"><h2>Zoom</h2></button>
+		    <div class="panel">
+		        <p>Content for Section 1 (Zoom)</p>
+		    </div>
+		    <button class="accordion"><h2>Teams</h2></button>
+		    <div class="panel">
+		        <p>Content for Section 1 (Teams)</p>
+		    </div>
+	    </div>
+	</div>
+
+    	<script>
+	        var acc = document.getElementsByClassName("accordion");
+	        for (var i = 0; i < acc.length; i++) {
+	            acc[i].addEventListener("click", function() {
+	                this.classList.toggle("active");
+	                var panel = this.nextElementSibling;
+	                if (panel.style.display === "block") {
+	                    panel.style.display = "none";
+	                } else {
+	                    panel.style.display = "block";
+	                }
+	            });
+	        }
+	</script>
+	</body>
+</html>
